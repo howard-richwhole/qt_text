@@ -1,7 +1,6 @@
 ﻿#include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include <QString>
-#include <QChar>
 #include <String>
 
 #include <iostream>
@@ -38,13 +37,13 @@ void MainWindow::showText()
     char *main[] = {u8"哈", u8"壓", u8"壓"};
     char *sub[] = {"ha", "yasdasdasd", "ya"};
 
-    QString outHtml = insertText(main, sub);
+    QString outHtml = genHtml(main, sub);
     ui->textBrowser->setHtml(outHtml);
 
     std::cout << ui->textBrowser->toHtml().toUtf8().constData() << std::endl;
 }
 
-QString MainWindow::insertText(char *mainText[], char *subText[])
+QString MainWindow::genHtml(char *mainText[], char *subText[])
 {
     QString tr1 = "<tr align=\"center\">";
     QString tr2 = "<tr align=\"center\">";

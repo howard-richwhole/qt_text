@@ -2,8 +2,6 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QPushButton>
-#include <QTextBlock>
 
 QT_BEGIN_NAMESPACE
 // 有個namespace Ui 裡頭有個class MainWindow
@@ -25,11 +23,10 @@ private slots:
     void on_pushButton2_clicked();
     void newDocument();
     void showText();
-    QString insertText(char*[],char*[]);
+    QString genHtml(char*[],char*[]);
 
 private:
     Ui::MainWindow* ui;
-    QTextBlock* block = NULL;
 
 };
 QString innerVal(QString,int = 18);
