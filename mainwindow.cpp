@@ -34,8 +34,8 @@ void MainWindow::newDocument()
 void MainWindow::showText()
 {
 
-    char *main[] = {u8"哈", u8"壓", u8"壓"};
-    char *sub[] = {"ha", "yasdasdasd", "ya"};
+    char *main[] = {u8"哈", u8"壓", u8"壓",u8"壓"};
+    char *sub[] = {"ha", "yasdasdasd", "ya","iu"};
 
     QString outHtml = genHtml(main, sub);
     ui->textBrowser->setHtml(outHtml);
@@ -45,22 +45,25 @@ void MainWindow::showText()
 
 QString MainWindow::genHtml(char *mainText[], char *subText[])
 {
-    QString tr1 = "<tr align=\"center\">";
-    QString tr2 = "<tr align=\"center\">";
-    for (int i = 0; i < 3; i++)
+    QString style = "<style>td{padding:0 1px;}</style>";
+    QString tr1= "";
+    QString tr2= "";
+    for (int i = 0; i < 4; i++)
     {
         tr1 += innerVal(QString(subText[i]), 12);
         tr2 += innerVal(QString(mainText[i]));
     }
-    tr1 += "</tr>";
-    tr2 += "</tr>";
-    return "<table>" + tr1 + tr2 + "</table>";
+
+    tr1 = "<tr align=\"center\">" + tr1 + "</tr>";
+    tr2 = "<tr align=\"center\">" + tr2 + "</tr>";
+    return style + "<table>" + tr1 + tr2 + "</table>";
 }
 
 
 QString innerVal(QString text, int fontSize)
 {
+    // int 轉string
     std::string fs = std::to_string(fontSize).c_str();
-    text = "<td align=\"center\" style=\"padding:0 5px;font-size:" + QString(fs.c_str()) + "px;\">" + text + "</td>";
+    text = "<td align=\"center\" style=\"font-size:" + QString(fs.c_str()) + "px;\">" + text + "</td>";
     return text;
 }
