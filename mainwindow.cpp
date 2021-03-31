@@ -34,8 +34,8 @@ void MainWindow::newDocument()
 void MainWindow::showText()
 {
 
-    char *main[] = {u8"哈", u8"壓", u8"壓",u8"壓"};
-    char *sub[] = {"ha", "yasdasdasd", "ya","iu"};
+    char *main[] = {u8"哈", u8"壓", u8"壓", u8"壓"};
+    char *sub[] = {"ha", "yasdasdasd", "ya", "iu"};
 
     QString outHtml = genHtml(main, sub);
     ui->textBrowser->setHtml(outHtml);
@@ -46,8 +46,8 @@ void MainWindow::showText()
 QString MainWindow::genHtml(char *mainText[], char *subText[])
 {
     QString style = "<style>td{padding:0 1px;}</style>";
-    QString tr1= "";
-    QString tr2= "";
+    QString tr1 = "";
+    QString tr2 = "";
     for (int i = 0; i < 4; i++)
     {
         tr1 += innerVal(QString(subText[i]), 12);
@@ -58,7 +58,6 @@ QString MainWindow::genHtml(char *mainText[], char *subText[])
     tr2 = "<tr align=\"center\">" + tr2 + "</tr>";
     return style + "<table>" + tr1 + tr2 + "</table>";
 }
-
 
 QString innerVal(QString text, int fontSize)
 {
