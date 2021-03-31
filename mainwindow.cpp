@@ -34,21 +34,21 @@ void MainWindow::newDocument()
 void MainWindow::showText()
 {
 
-    char *main[] = {u8"哈", u8"壓", u8"壓", u8"壓"};
-    char *sub[] = {"ha", "yasdasdasd", "ya", "iu"};
+    char *main[] = {u8"哈", u8"壓", u8"壓", u8"壓", u8"加"};
+    char *sub[] = {"ha", "yasdasdasd", "ya", "iu", "susk"};
 
-    QString outHtml = genHtml(main, sub);
+    QString outHtml = genHtml(main, sub, sizeof(main) / sizeof(main[0]));
     ui->textBrowser->setHtml(outHtml);
 
     std::cout << ui->textBrowser->toHtml().toUtf8().constData() << std::endl;
 }
 
-QString MainWindow::genHtml(char *mainText[], char *subText[])
+QString MainWindow::genHtml(char *mainText[], char *subText[], int len)
 {
     QString style = "<style>td{padding:0 1px;}</style>";
     QString tr1 = "";
     QString tr2 = "";
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < len; i++)
     {
         tr1 += innerVal(QString(subText[i]), 12);
         tr2 += innerVal(QString(mainText[i]));

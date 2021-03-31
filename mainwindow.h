@@ -26,7 +26,7 @@ private slots:
     void on_pushButton2_clicked();
     void newDocument();
     void showText();
-    QString genHtml(char *[], char *[]);
+    QString genHtml(char *[], char *[],int);
 
 private:
     Ui::MainWindow *ui;
