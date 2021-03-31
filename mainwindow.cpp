@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     //(哪個送，哪格信號，接收者，執行的函示)
     connect(ui->actionDo, &QAction::triggered, this, &MainWindow::newDocument);
     // 綁一般的原件
-    connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(addTextBlock()));
+    connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(showText()));
 }
 
 MainWindow::~MainWindow()
@@ -32,13 +32,15 @@ void MainWindow::newDocument()
     QCoreApplication::quit();
 }
 
-void MainWindow::addTextBlock()
+void MainWindow::showText()
 {
 
     char *main[] = {u8"哈", u8"壓", u8"壓"};
     char *sub[] = {"ha", "yasdasdasd", "ya"};
+
     QString outHtml = insertText(main, sub);
     ui->textBrowser->setHtml(outHtml);
+
     std::cout << ui->textBrowser->toHtml().toUtf8().constData() << std::endl;
 }
 
@@ -53,14 +55,9 @@ QString MainWindow::insertText(char *mainText[], char *subText[])
     }
     tr1 += "</tr>";
     tr2 += "</tr>";
-    return innerTable(tr1 + tr2);
+    return "<table>" + tr1 + tr2 + "</table>";
 }
 
-QString innerTable(QString text)
-{
-    text = "<table>" + text + "</table>";
-    return text;
-}
 
 QString innerVal(QString text, int fontSize)
 {

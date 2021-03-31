@@ -24,7 +24,7 @@ private slots:
 // 宣告pushButton2 click 動做
     void on_pushButton2_clicked();
     void newDocument();
-    void addTextBlock();
+    void showText();
     QString insertText(char*[],char*[]);
 
 private:
@@ -32,6 +32,5 @@ private:
     QTextBlock* block = NULL;
 
 };
-QString innerTable(QString);
 QString innerVal(QString,int = 18);
 #endif // MAINWINDOW_H
