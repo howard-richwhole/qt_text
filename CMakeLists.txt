@@ -22,8 +22,8 @@ set(PROJECT_SOURCES
     mainwindow.h
     mainwindow.ui
 )
-
-add_executable(untitled
+# 加WIN32去除terminal
+add_executable(untitled WIN32 
     ${PROJECT_SOURCES}
 )
 
